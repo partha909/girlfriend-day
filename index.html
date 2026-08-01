@@ -2,118 +2,114 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Happy Girlfriend's Day ❤️</title>
-
-<link rel="stylesheet" href="style.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
-
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Arial,sans-serif;
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(-45deg,#ff4d6d,#ff8fab,#ffc2d1,#cdb4db);
+background-size:400% 400%;
+animation:bg 12s ease infinite;
+}
+@keyframes bg{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
+.card{
+width:min(90%,700px);
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(18px);
+border-radius:25px;
+padding:40px;
+text-align:center;
+color:#fff;
+box-shadow:0 15px 40px rgba(0,0,0,.25);
+z-index:2;
+}
+h1{font-size:3rem}
+h2{margin:10px 0 20px;color:#ffeef2}
+img{
+width:180px;height:180px;border-radius:50%;
+object-fit:cover;
+border:5px solid #fff;
+margin:20px auto;
+display:block;
+}
+p{font-size:1.1rem;line-height:1.8}
+button{
+margin-top:20px;
+padding:14px 30px;
+border:none;
+border-radius:40px;
+font-size:18px;
+background:#fff;
+color:#ff2e63;
+cursor:pointer;
+font-weight:bold;
+}
+#letter{
+display:none;
+margin-top:20px;
+padding:20px;
+background:rgba(255,255,255,.2);
+border-radius:18px;
+}
+.heart{
+position:absolute;
+color:#fff;
+animation:fall linear forwards;
+pointer-events:none;
+}
+@keyframes fall{
+from{transform:translateY(-10vh);opacity:1}
+to{transform:translateY(110vh);opacity:0}
+}
+</style>
 </head>
-
 <body>
-
-<div id="hearts"></div>
-<div id="petals"></div>
-
-<section class="hero">
-
-<div class="glass">
-
-<h2>Happy Girlfriend's Day</h2>
-
-<h1>❤️ My Forever ❤️</h1>
-
+<div class="card">
+<h2>💖 Happy Girlfriend's Day 💖</h2>
+<h1>My Forever ❤️</h1>
+<img src="photo.jpg" onerror="this.style.display='none'">
 <p>
-
-You are the most beautiful chapter of my life.
-Every heartbeat whispers your name.
-No matter where life takes us,
-I will always choose you.
-
+You are the most beautiful part of my life.<br>
+Every heartbeat whispers your name.<br>
+Thank you for making my world brighter.<br><br>
+<b>I Love You Forever ❤️</b>
 </p>
-
-<div class="photo">
-
-<img src="photo.jpg">
-
-</div>
-
-<button id="loveBtn">
-
-Open My Heart ❤️
-
-</button>
-
-</div>
-
-</section>
-
-<div id="letter" class="hidden">
-
-<div class="letter-card">
-
-<h2>💌 My Love Letter</h2>
-
+<button onclick="openLetter()">💌 Open My Love Letter</button>
+<div id="letter">
+<h3>My Love,</h3>
 <p>
-
-My Love,
-
-Thank you for making my life beautiful.
-
-Every smile of yours is my happiness.
-
-Every hug is my safest place.
-
-Every moment with you is a blessing.
-
-I promise to love you,
-respect you,
-and stand beside you forever.
-
+Thank you for every smile, every hug and every memory.
+No matter what happens, I will always stand beside you.
 Happy Girlfriend's Day ❤️
-
-I Love You Forever.
-
 </p>
-
-<button id="closeBtn">
-
-Close
-
-</button>
-
 </div>
-
+<audio id="music" src="music.mp3" loop></audio>
+<button onclick="toggleMusic()">🎵 Music</button>
 </div>
-
-<div class="counter">
-
-<h2>Together Since ❤️</h2>
-
-<div id="timer">
-
-00 Days 00 Hours 00 Minutes
-
-</div>
-
-</div>
-
-<audio id="music" loop>
-
-<source src="music.mp3" type="audio/mpeg">
-
-</audio>
-
-<button class="musicBtn">
-
-🎵
-
-</button>
-
-<script src="script.js"></script>
-
+<script>
+function openLetter(){
+document.getElementById('letter').style.display='block';
+}
+function toggleMusic(){
+const m=document.getElementById('music');
+if(m.paused)m.play();else m.pause();
+}
+setInterval(()=>{
+let h=document.createElement('div');
+h.className='heart';
+h.innerHTML='❤️';
+h.style.left=Math.random()*100+'vw';
+h.style.fontSize=(18+Math.random()*28)+'px';
+h.style.animationDuration=(4+Math.random()*4)+'s';
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),8000);
+},180);
+</script>
 </body>
-
 </html>
