@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Girlfriend's Day ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ff4b7d,#ff8fab,#ffd6e0);
+overflow:hidden;
+}
+
+.card{
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(10px);
+padding:40px;
+border-radius:20px;
+text-align:center;
+color:#fff;
+max-width:500px;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+animation:fadeIn 1.5s;
+}
+
+h1{
+font-size:40px;
+margin-bottom:15px;
+}
+
+p{
+font-size:20px;
+line-height:1.7;
+}
+
+button{
+margin-top:25px;
+padding:12px 28px;
+border:none;
+border-radius:50px;
+background:#fff;
+color:#ff2d6f;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.08);
+}
+
+.heart{
+position:absolute;
+font-size:25px;
+animation:float 8s linear infinite;
+opacity:.8;
+}
+
+@keyframes float{
+0%{
+transform:translateY(100vh);
+}
+100%{
+transform:translateY(-120px);
+}
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:scale(.8);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+</style>
+
+</head>
+<body>
+
+<div class="card">
+<h1>❤️ Happy Girlfriend's Day ❤️</h1>
+
+<p>
+You are the most beautiful part of my life.<br><br>
+
+Every heartbeat whispers your name.<br>
+
+Thank you for making my life beautiful.<br><br>
+
+<b>I Love You Forever ❤️</b>
+</p>
+
+<button onclick="showLove()">Click Me ❤️</button>
+</div>
+
+<script>
+
+function showLove(){
+alert("Happy Girlfriend's Day ❤️\nYou are my everything! 💖");
+}
+
+for(let i=0;i<40;i++){
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤️";
+h.style.left=Math.random()*100+"%";
+h.style.animationDuration=(4+Math.random()*5)+"s";
+h.style.fontSize=(15+Math.random()*30)+"px";
+document.body.appendChild(h);
+}
+
+</script>
+
+</body>
+</html>
